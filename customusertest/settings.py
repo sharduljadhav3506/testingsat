@@ -57,8 +57,12 @@ WSGI_APPLICATION = 'customusertest.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'MYSTOCK',
+        'HOST':'sattvatest.cd0qso8ausl8.us-east-1.rds.amazonaws.com',
+        'USER':'shardul',
+        'PASSWORD': 'Mgail3506',
+        'PORT':'3306'
     }
 }
 
