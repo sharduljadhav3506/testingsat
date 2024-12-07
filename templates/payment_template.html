@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load static %}
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+    <script src="https://js.stripe.com/v3/"></script>
+  </head>
+  <body>
+
+      <div class="d-flex flex-column justify-content-center align-items-center" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+        <h2 class="regtextl" style="font-size: 100px; color: #9a2020;">Total Bill-</h2>
+        <h1 class="regtextl" style="font-size: 80px; color: #9a2020;">¥{{ total_price }}</h1>
+        <form action="{% url 'submitorder' %}" method="POST">
+            {% csrf_token %} <!-- Required for security -->
+            
+            <button type="submit" id="checkout-button" class="genbuttonsl mt-4 px-4 py-4" style="border: none; font-size: 60px; border-radius: 5%; background-color: #9a2020; color:#E3DCCA;">Checkout</button>
+          </form>
+          <a href="cart"><button class="genbuttonsl mt-4 px-4 py-4" style="border-radius: 5%; font-size: 60px; background-color: transparent; border-color: #9a2020; color: #9a2020;">Back to Cart</button></a>
+      </div>
+
+    <script>
+      var stripe = Stripe('{{ stripe_public_key }}');
+
+      document.getElementById('checkout-button').addEventListener('click', function(e) {
+        e.preventDefault();
+        stripe.redirectToCheckout({
+          sessionId: '{{ session_id }}'
+        }).then(function (result) {
+          if (result.error) {
+            alert(result.error.message);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

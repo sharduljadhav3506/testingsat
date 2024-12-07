@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>abcde</title>
+  {% load static %}
+  <!-- Load jQuery Full Version -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  
+  <!-- Latest jQuery UI Libraries -->
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+  <!-- Bootstrap Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+  <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+  <script>
+    $(function() {
+        $("#search").autocomplete({
+            source: "{% url 'product-autocomplete' %}",
+            minLength: 2, // Minimum characters before triggering autocomplete
+        });
+    });
+  </script>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg" style="position: fixed; z-index: 2; width: 100%;">
+    <div class="container-fluid d-flex align-items-center justify-content-between navbarback">
+      
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#searchbar" aria-controls="searchbar" aria-expanded="false" aria-label="Toggle navigation" style="margin-left: 5px;">
+        <i class="fa fa-search" style="color: #E3DCCA;"></i>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="searchbar">
+        <form class="d-flex flex-grow-1 mx-1 my-2" action="{% url 'products' %}" method="post" style="width: 80%;">
+          {% csrf_token %}
+          <input class="form-control searchbar px-2" style="width: 100%;" type="search" placeholder="Search for Item" aria-label="Search" name="handlesearch" id="search">
+          <button class="btn searchsubmit ml-1" type="submit">Search</button>
+        </form>
+      </div>
+      
+      <a href="/"><img src="{% static 'genpics/sattvalogo.png' %}" alt="sattvalogo" style="height: 90px; width: 200px; margin-right: 5px;" class="navlogo"></a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="margin-left: 5px;">
+        <span class="navbar-toggler-icon">
+          <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#E3DCCA">
+            <path d="M4 18L20 18" stroke="#E3DCCA" stroke-width="2" stroke-linecap="round"/>
+            <path d="M4 12L20 12" stroke="#E3DCCA" stroke-width="2" stroke-linecap="round"/>
+            <path d="M4 6L20 6" stroke="#E3DCCA" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </span>
+      </button>
+    
+      <!-- Collapsible Menu Items -->
+      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item active navbarmargin">
+            <a class="nav-link mx-3 regtext" href="/">Home</a>
+          </li>
+          <li class="nav-item active navbarmargin">
+            <a class="nav-link mx-3 regtext" href="cart">Cart</a>
+          </li>
+          <li class="nav-item active navbarmargin">
+            <a class="nav-link mx-3 regtext" href="products">Products</a>
+          </li>
+          <li class="nav-item active navbarmargin">
+            <a class="nav-link mx-3 regtext" href="account">Account</a>
+          </li>
+          <li class="nav-item active navbarmargin">
+            <a class="nav-link mx-3 regtext" href="history">History</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </nav>
+  <div class="d-flex flex-column justify-content-center align-items-center vh-100 fcard">
+    <h2 class="regtextl" style="color: #9a2020;">Signed in As-</h2>
+    <h1 class="regtextl" style="color: #9a2020;">{{ request.user.username }}</h1>
+    <h1 class="regtextl" style="color: #9a2020;">{{ request.user.phonenumber }}</h1>
+    <div class="d-flex mt-2">
+    <a href="logoutuser" class="btn genbuttonsl ml-3 pt-2" style="height: 48px; font-size: 20px; width: 100px; background-color: transparent; color: #9a2020; border-color: #9a2020;">Logout</a>
+    <a href="history" class="btn genbuttonsl ml-3 pt-2" style="height: 48px; font-size: 20px; width: 100px; background-color: #9a2020; color: #E3DCCA;">History</a>
+    <a href="cart" class="btn genbuttonsl ml-3 pt-2" style="height: 48px; font-size: 20px; width: 100px; background-color: #9a2020; color: #E3DCCA;">Cart</a>
+    </div>
+    <p class="mt-2" style="color: #9a2020; text-align: center;">You must contact the store to change account details</p>
+  </div>
+  
+  <script>
+    $(window).on('scroll', function() {
+      $('.fcard').each(function() {
+        if ($(this).offset().top < $(window).scrollTop() + $(window).height()) {
+          $(this).addClass('fade-in');
+        }
+      });
+    });
+  
+    // Trigger scroll event on page load to fade in cards already in view
+    $(window).trigger('scroll');
+  </script>
+</body>
+</html>

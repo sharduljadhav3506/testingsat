@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+*:focus {
+    outline: none;
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+*{
+    transition: 0.5s ease;
+}
+
+.fcard {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  
+  .fcard.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+
+body{
+    background-color: #E3DCCA;
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+nav {
+    background: #9a20207f; /* Semi-transparent background */
+    backdrop-filter: blur(10px);          /* Background blur effect */
+    -webkit-backdrop-filter: blur(10px);  /* Safari support 
+    border: none; /* Border to simulate the glass */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Subtle shadow */
+  }
+
+li a{
+    color:#E3DCCA;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+li:hover{
+    background-color:#E3DCCA;
+    border-radius: 5%;
+    transition: .5s;
+}
+
+li:hover a{
+    color: #9a2020;;
+}
+
+@media (min-width: 992px){
+    .navlogo{
+        display: none;
+    }
+}
+
+.searchbar{
+    max-width: 300px;
+}
+
+.navbar-brand{
+    color:  #9a2020;
+    font-weight: 400;
+    font-size: 30px;
+    
+}
+
+.qtychange:hover{
+    background-color:  #6d0d0d;
+    color: rgb(234, 145, 72);
+  }
+.fixedbutton {
+position: fixed;   /* Keeps the button fixed to the viewport */
+bottom: 70px;      /* 20px from the bottom of the viewport */
+right: 20px;       /* 20px from the right of the viewport */
+z-index: 1000;     /* Ensures it stays on top of other content */
+padding: 5px 7px;
+height: 60px;
+width: 80px;
+border: none;
+border-radius: 5px;
+border-width: 5px;
+cursor: pointer;
+}
+
+.sattvaheader {
+background-image: url("{% static 'genpics/satgif.gif' %}");
+background-size: cover; /* Make sure the image covers the div */
+background-position: center; /* Center the image */
+height: 600px; /* Set the height of the div */
+width: 100%; /* Make it full width */
+display: flex;
+flex-direction: column;
+justify-content: center;     /* Center items horizontally */
+align-items: center;   
+
+}
+
+.sattlogo{
+width: 100%;
+height: 30%;
+background-color: #e3dccac5;         
+}
+
+
+.navbar-brand:hover{
+    color:  #9a2020;
+}
+
+.searchbar{
+    background-color:#E3DCCA;;
+    border: none;
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+.searchbar:focus{
+    background-color:#E3DCCA;;
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+.searchbar::placeholder{
+    color:  #9a2020;
+}
+
+.searchsubmit{
+    background-color:  #9a2020;
+    color: #E3DCCA;
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+.searchsubmit:hover{
+    background-color:#4d0303bc;
+    color: rgb(234, 145, 72);
+    transition: .5s;
+}
+
+.next-prev:hover{
+    background-color: #9a2020d1;
+    transition: 0.5s ease; 
+}
+
+.next-prev{
+    transition:0.5s ease; 
+}
+
+.selectfilter{
+    font-size: 30px;
+    color: rgb(234, 145, 72);}
+
+.tester{
+    background-color: rgb(234, 145, 72);
+    border-color: #611515;
+}
+
+.tester:focus{
+    background-color: rgb(234, 145, 72);
+    border-color: #611515;
+}
+
+.regtextd{
+    
+    color: #9a2020;
+    font-family: "Noto Sans KR", sans-serif;
+    
+}
+
+.glassback {
+    position: relative; /* Required for positioning the pseudo-element */
+    background: rgba(255, 255, 255, 0.3); /* Semi-transparent white background */
+    backdrop-filter: blur(15px); /* Apply blur effect */
+    -webkit-backdrop-filter: blur(15px); /* For Safari */
+    overflow: hidden; /* Ensure child elements don’t overflow */
+}
+
+/* Optional: If you want to darken the image behind the glass effect */
+.glassback::before {
+    content: ""; /* Create a pseudo-element */
+    position: absolute;
+    backdrop-filter: blur(7px);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #9a20204d; /* Dark overlay */ /* Match border radius */
+    z-index: -1; /* Ensure it’s behind the content */
+}
+
+
+.regtextl{
+    
+    color: rgb(234, 145, 72);
+    font-family: "Noto Sans KR", sans-serif;
+    
+}
+
+.genbuttonsl{
+    background-color: rgb(234, 145, 72);
+    font-family: "Noto Sans KR", sans-serif;
+    color: #9a2020;
+}
+
+.genbuttonsl:hover{
+    color: rgb(234, 145, 72);
+    background-color: #9a2020;
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+.genbuttonsd{
+    color: #9a2020;
+    border-color: #9a2020;
+    border-radius: 0px;
+    background-color: transparent;
+}
+
+.genbuttonsd:hover{
+    background-color: rgb(234, 145, 72);
+    color: #9a2020;
+}
+
+.placeorder{
+    background-color: rgb(234, 145, 72);
+    font-family: "Noto Sans KR", sans-serif;
+    color: #9a2020 !important;
+  }
+
+.ui-menu-item-wrapper{
+    background-color: #9a2020 !important;
+    color: #E3DCCA;;
+    border: none !important;
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+/* Fixed/sticky horizontal icon bar at the bottom of the screen */
+.icon-bar {
+    position: fixed;
+    z-index: 6;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+  }
+  
+  /* Style the icon bar links */
+  .icon-bar a {
+    flex: 1;
+    padding: 16px;
+    text-align: center;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 20px;
+  }
+  
+  /* Style the social media icons with color */
+  .icon-bar a:hover {
+    background-color: #000;
+  }
+  
+ 
+  
