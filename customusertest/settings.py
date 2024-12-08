@@ -1,6 +1,7 @@
 from pathlib import Path
 import os
-
+import pymysql
+pymysql.install_as_MySQLdb()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-p+)-0k7-xwglb^zx$02#n$wa6kl55t0ri1*8t_7aev=%96=(i1'
