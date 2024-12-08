@@ -59,7 +59,7 @@ WSGI_APPLICATION = 'customusertest.wsgi.app'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'sattvatest',
+        'NAME': 'yoyohoneysingh',
         'HOST':'sattvatest.cd0qso8ausl8.us-east-1.rds.amazonaws.com',
         'USER':'shardul',
         'PASSWORD': 'Mgail3506',
