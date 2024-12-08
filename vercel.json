@@ -1,12 +1,12 @@
 {
     "builds": [{
-        "src": "customusertest/asgi.py",
+        "src": "customusertest/wsgi.py",
         "use": "@vercel/python"
     }],
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "customusertest/asgi.py"
+            "dest": "customusertest/wsgi.py"
         }
     ]
 }
