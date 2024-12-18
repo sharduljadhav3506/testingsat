@@ -60,12 +60,15 @@ WSGI_APPLICATION = 'customusertest.wsgi.app'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'yoyohoneysingh',
-        'HOST':'sattvatest.cd0qso8ausl8.us-east-1.rds.amazonaws.com',
-        'USER':'shardul',
+        'NAME': 'sattvatest',
+        'HOST': 'sattvatest.cd0qso8ausl8.us-east-1.rds.amazonaws.com',
+        'USER': 'shardul',
         'PASSWORD': 'Mgail3506',
-        'PORT':'3306'
-    }
+        'PORT': '3306',
+        'OPTIONS': {
+            'ssl': {'verify_cert': False},
+        },
+    },
 }
 
 
